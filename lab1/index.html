@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Быстрый старт. Размещение интерактивной карты на странице</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        var myMap, 
+            myPlacemark;
+
+        function init(){ 
+            myMap = new ymaps.Map("map", {
+                center: [53.254175, 34.362875],
+                zoom: 7
+            }); 
+         
+         MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+        ),
+         
+            myPlacemark = new ymaps.Placemark([53.304643, 34.303997], {
+                hintContent: 'БГТУ!',
+                balloonContent: 'Самый лучший ВУЗ в мире'
+            },
+             
+            {
+            iconLayout: 'default#image',
+            iconImageHref: 'image/u.png',
+            iconImageSize: [30, 30],
+            iconImageOffset: [-5, -38]}),
+           myPlacemark1 = new ymaps.Placemark([53.272652, 34.351792], {
+                hintContent: 'БГУ!',
+                balloonContent: 'Брянский Государственный Университет им. И.Г. Петровского'
+            },
+                                             
+            { 
+            iconLayout: 'default#image',
+            iconImageHref: 'image/u.png',
+            iconImageSize: [30, 30],
+            iconImageOffset: [-5, -38]}),
+            myPlacemark2 = new ymaps.Placemark([53.243553, 34.369706], {
+                hintContent: 'РАНХиГС',
+                balloonContent: 'Филиал'
+            },
+                                  
+            {
+            iconLayout: 'default#image',
+            iconImageHref: 'image/u.png',
+            iconImageSize: [30, 30],
+            iconImageOffset: [-5, -38]}),
+            myPlacemark3 = new ymaps.Placemark([53.244359, 34.365585], {
+                hintContent: 'БГИТУ',
+                balloonContent: 'Брянский Государственный Инженерно-Технологический Университет'
+            },
+                                           
+            { 
+            iconLayout: 'default#image',
+            iconImageHref: 'image/u.png',
+            iconImageSize: [30, 30],
+            iconImageOffset: [-5, -38]}),
+            myPlacemark4 = new ymaps.Placemark([53.270702, 34.354277], {
+                hintContent: 'РЭУ',
+                balloonContent: 'Российский экономический университет им. Г.В. Плеханова — филиал'
+            },
+            
+            {
+            iconLayout: 'default#image',
+            iconImageHref: 'image/u.png',
+            iconImageSize: [30, 30],
+            iconImageOffset: [-5, -38]}),
+            myPlacemark5 = new ymaps.Placemark([53.248180, 34.328506], {
+                hintContent: 'БИУБ',
+                balloonContent: 'Брянский институт управления и бизнеса'
+            },
+                                             
+            { 
+            iconLayout: 'default#image',
+            iconImageHref: 'image/u.png',
+            iconImageSize: [30, 30],
+            iconImageOffset: [-5, -38]})
+         ;
+            
+            myMap.geoObjects
+             .add(myPlacemark)
+             .add(myPlacemark1)
+             .add(myPlacemark2)
+             .add(myPlacemark3)
+             .add(myPlacemark4)
+             .add(myPlacemark5);
+        }
+    </script>
+</head>
+<body>
+    <div id="map" style="width: 600px; height: 400px"></div>
+</body>
+</html>
